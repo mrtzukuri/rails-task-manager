@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+100.times do
+  task = Task.new(
+    title:   "#{Faker::Verb.base.capitalize} #{Faker::Name.first_name}",
+    details: Faker::Movie.quote
+  )
+  task.save!
+end
